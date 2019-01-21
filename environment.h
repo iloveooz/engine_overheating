@@ -20,6 +20,9 @@ public:
     double get_temp () {
         return ambientTemp;
     }
+
+    ~Environment() {}
+
 private:
     // нельзя копировать окружающую среду
     Environment (const Environment& );

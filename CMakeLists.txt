@@ -8,4 +8,4 @@ message("Сборка тестового задания")
 set(company "Forward Development")
 message(${company})
 
-add_executable(engine_overheating main.cpp environment.h engine.h entity.h)
+add_executable(engine_overheating main.cpp environment.h engine.h entity.h fabrique.h simulation.h)

@@ -6,7 +6,8 @@
 #define ENGINE_OVERHEATING_ENGINE_H
 
 #include "entity.h"
-#include <map>
+#include <unordered_map>
+#include <bits/unordered_map.h>
 
 class Engine : public Entity {
 public:
@@ -31,15 +32,25 @@ public:
         engine_mInertia = mI;
     }
 
+    ~Engine() {
+        // TODO реализовать в деструкторе удаление map - таблицы
+    }
+
 private:
     // нельзя копировать двигатель
     Engine (const Engine& );
+
     // температура двигателя
     double engineTemp;
+
     // момент инерции двигателя
     double engine_mInertia;
+
     // кусочно-линейная зависимость крутящего момента М, вырабатываемого двигателем, от скорости вращения коленвала V
-    std::map <int, int> engine_M_V_dep;
+    std::unordered_map <int, int> engine_M_V_dep;
+
+    // температура перегрева
+
 };
 
 #endif //ENGINE_OVERHEATING_ENGINE_H
