@@ -20,6 +20,9 @@ int main(int argc, char** argv) {
     Environment ENVI;
     double ambientTemp = 0;
 
+    // можно задать свои значения параметров двигателя
+    //
+    
     Engine DVS;
 
     std::cout << "Тестовое задание" << '\n';
@@ -41,8 +44,8 @@ int main(int argc, char** argv) {
     ENVI.set_temp(ambientTemp);
     DVS.set_temp(ambientTemp);
 
-    std::cout << "Температура окружающей среды: " << ENVI.get_temp() << '\n';
-    std::cout << "Температура двигателя: " << ENVI.get_temp() << '\n';
+    std::cout << "Температура окружающей среды: " << ENVI.get_temp() << "°" << '\n';
+    std::cout << "Температура двигателя: " << DVS.get_temp() << "°" << '\n';
 
 
 

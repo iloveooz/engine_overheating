@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fahr/git/engine_overheating/engine.h
+entity.h
+/home/fahr/git/engine_overheating/entity.h
+map
+-
+
+/home/fahr/git/engine_overheating/entity.h
+
+/home/fahr/git/engine_overheating/environment.h
+
+/home/fahr/git/engine_overheating/main.cpp
+iostream
+-
+environment.h
+/home/fahr/git/engine_overheating/environment.h
+entity.h
+/home/fahr/git/engine_overheating/entity.h
+engine.h
+/home/fahr/git/engine_overheating/engine.h
+
