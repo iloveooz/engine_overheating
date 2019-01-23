@@ -93,9 +93,6 @@
 		<Unit filename="/home/fahr/git/engine_overheating/environment.h">
 			<Option target="engine_overheating"/>
 		</Unit>
-		<Unit filename="/home/fahr/git/engine_overheating/fabrique.h">
-			<Option target="engine_overheating"/>
-		</Unit>
 		<Unit filename="/home/fahr/git/engine_overheating/main.cpp">
 			<Option target="engine_overheating"/>
 		</Unit>

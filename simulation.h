@@ -10,6 +10,4 @@ class simulation {
     virtual ~simulation() {}
 };
 
-    // TODO реализовать тестовый стенд и симуляцию на нём
-
 #endif //ENGINE_OVERHEATING_SIMULATION_H

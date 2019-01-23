@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <vector>
-#include <unordered_map>
+#include <map>
 #include <ctime>
 
 //#include "stdafx.h"
@@ -31,20 +31,20 @@ int main(int argc, char** argv) {
         double engine_mInertia = 0.1;
 
         // кусочно-линейная зависимость крутящего момента М, вырабатываемого двигателем, от скорости вращения коленвала V
-        std::unordered_map <int, int> engine_M_V_dep;
+        std::map <int, int> engine_V_M_dep;
 
-        engine_M_V_dep = { { 20,  0 },
-                           { 75,  75 },
-                           { 100, 150 },
-                           { 105, 200 },
-                           { 75,  250 },
-                           { 0,   300 } };
+        engine_V_M_dep = { { 0, 20 },
+                           { 75, 75 },
+                           { 150, 100 },
+                           { 200, 105 },
+                           { 250, 75 },
+                           { 300, 0 } };
 
         // температура перегрева
         double engine_tOverheat = 110.0;
 
         // температура двигателя
-        double engine_tCurrent = ambientTemp;
+        double engine_temp = ambientTemp;
 
         // коэффициент зависимости скорости нагрева от крутящего момента
         double engine_Hm = 0.01;
@@ -55,8 +55,7 @@ int main(int argc, char** argv) {
         // коэффициент зависимости скорости охлаждения от температуры двигателя и окружающей среды
         double engine_C = 0.1;
 
-
-        Engine DVS;
+        Engine DVS(ambientTemp, engine_mInertia, engine_tOverheat, engine_Hm, engine_Hv, engine_C, engine_V_M_dep);
 
     std::cout << "Тестовое задание" << '\n';
     std::cout << "Расчёт времени от запуска ДВС до перегрева ДВС" << '\n';
@@ -74,14 +73,15 @@ int main(int argc, char** argv) {
     while (!(ambientTemp >= -273 && ambientTemp <= 60));
 
     // устанавливаем температуру окружающей среды
+    engine_temp = ambientTemp;
     ENVI.set_temp(ambientTemp);
-    DVS.set_temp(ambientTemp);
+    DVS.set_temp(engine_temp, ambientTemp);
 
-    std::cout << "Температура окружающей среды: " << ENVI.get_temp() << "°" << '\n';
     std::cout << "Температура двигателя: " << DVS.get_temp() << "°" << '\n';
+    std::cout << "Заводим двигатель" << '\n';
 
-
-
+    DVS.logic();
+    DVS.show_all_parameters();
 
     return 0;
 }
